@@ -102,7 +102,48 @@ with open('table2-combCite.csv', 'w') as f:
             # case insensitive comparison
             if maxqda_title in zotero_title:
                 for col in df.columns[3:]:
-                    f.write(f"{row[col]};")
+                    # if the value is not 0, write the number according to class to the file
+                    pattern = re.compile(r'^(?!\.\.)(.*?) > (.*)$')# there is always a category and a subcategory, but not always a subsubcategory
+                    # now use this pattern to extract the title from the current row
+                    match = pattern.match(col)
+                    if match:
+                        # print(f"Match: {col}")
+                        category_number = 1
+                        category = match.group(1) # the category. Depending on the category, the class will be different, e.g. 0, 1, 2, 3
+                        if category == "Input Modalities":
+                            category_number = 2
+                        elif category == "Derived Data":
+                            category_number = 3
+                        elif category == "Summarization":
+                            category_number = 4
+                        elif category == "Summarizing Entities":
+                            category_number = 5
+                        elif category == "Visual Layout":
+                            category_number = 6
+                        elif category == "Interactions":
+                            category_number = 7
+                        elif category == "Tasks":
+                            category_number = 8
+                        elif category == "Set size":
+                            category_number = 9
+                        elif category == "Application Area":
+                            category_number = 10
+                        elif category == "Evaluation":
+                            category_number = 11
+                        else: # TODO: this should not happen
+                            print(f"Category not found: {category}")
+                            category_number = 1
+
+
+                        subcategory = match.group(2) # the actual tag
+                        # the third level, subsubcategory is not needed here
+                    else:
+                        print(f"No match: {col}")
+
+                    if row[col] != 0:
+                        f.write(f"{category_number};")
+                    else:
+                        f.write("0;")
                 break
         f.write("\n")
 
