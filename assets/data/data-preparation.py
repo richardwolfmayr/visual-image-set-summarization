@@ -1,6 +1,6 @@
 # this script should create the table2-combCite file from main_clean.json and xxxx
 # main_clean.json is the export from zotero
-# xxx is the export from MAXQDA
+# Document Profiles.xlsx is the export from MAXQDA Reports-->Document Profiles
 
 import json
 import re
@@ -8,6 +8,10 @@ import pandas as pd
 
 # Load the zotero_data
 with open('main_clean.json', 'r') as f:
+    zotero_data = json.load(f)
+
+# load only the 20 exploratory papers
+with open('main_clean_20.json', 'r') as f:
     zotero_data = json.load(f)
 
 # Write into the table2-combCite.csv file
@@ -138,12 +142,17 @@ with open('table2-combCite.csv', 'w') as f:
                         subcategory = match.group(2) # the actual tag
                         # the third level, subsubcategory is not needed here
                     else:
+                        # TODO: in the third level, the highest-level-category is not displayed anymore ==> will not be found...
+                        # e.g. "..> Supplementary Data >  Popularity" instead of "Input Modalities > Supplementary Data >  Popularity"
                         print(f"No match: {col}")
 
+                    # for this row and this column, find which number is in the xlsx file
                     if row[col] != 0:
                         f.write(f"{category_number};")
                     else:
                         f.write("0;")
+
+
                 break
         f.write("\n")
 
