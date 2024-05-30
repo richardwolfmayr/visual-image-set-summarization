@@ -1,70 +1,107 @@
-Paper#Ref;Input Modalities > Image;Derived Data > Affective Features;Derived Data > Scene Graphs;Derived Data > Image Features;..> Image Features > Global Image Features;Summarization > Combined Scene Graph;Summarization > Maximum Common Subgraph;Summarization > Ranking;Summarization > Clustering;Summarizing Entities > Captions;Summarizing Entities > Representative Images;Visual Layout > None;Visual Layout > Embedding;Visual Layout > List;Interactions > None;Interactions > Grouping;Interactions > Turning;Interactions > Zooming;Interactions > Selection;Tasks > Annotation;Tasks > Captioning;Tasks > Summarization;Tasks > Interactive Exploration;Set size > <100;Set size > Thousands;Application Area > medical;Evaluation > None;Evaluation > Metrics;..> Metrics > ROGUE;..> Metrics > BLEU;..> Metrics > CIDEr;..> Metrics > BERTScore;Evaluation > User study;
-Semantic Hierarchical Exploration of Large Image Datasets#http://zotero.org/groups/3431/items/VS6X3P5L;
-DendroMap: Visual Exploration of Large-Scale Image Datasets for Machine Learning with Treemaps#http://zotero.org/groups/3431/items/C9ZFYC3Y;
-Image summarization using topic modelling#http://zotero.org/groups/3431/items/DLY3AMJY;
-Urban Mosaic: Visual Exploration of Streetscapes Using Large-Scale Image Data#http://zotero.org/groups/3431/items/IVC76KGV;
-Joint optimisation convex-negative matrix factorisation for multi-modal image collection summarisation based on images and tags#http://zotero.org/groups/3431/items/89I3KA4T;
-Style-centric image summarization from photographic views of a city#http://zotero.org/groups/3431/items/P9MV7J4N;
-A viewable indexing structure for the interactive exploration of dynamic and large image collections#http://zotero.org/groups/3431/items/GAB27IWZ;
-Tree-Based Visualization and Optimization for Image Collection#http://zotero.org/groups/3431/items/UN3S5BN8;
-ARIES: Enabling visual exploration and organization of art image collections#http://zotero.org/groups/3431/items/W32DLE9P;
-Visualization and recommendation of large image collections toward effective sensemaking#http://zotero.org/groups/3431/items/7XM9ZI4S;
-'Picture the scene...' visually summarising social media events#http://zotero.org/groups/3431/items/FCXZXJ65;
-Visualizing document image collections using image-based word clouds#http://zotero.org/groups/3431/items/VJRKY24N;
-A summarized photo visualization system with maximal clique finding algorithm#http://zotero.org/groups/3431/items/VUKTFF64;
-Combining conceptual query expansion and visual search results exploration for web image retrieval#http://zotero.org/groups/3431/items/7C4LLQEB;
-II-20: Intelligent and pragmatic analytic categorization of image collections#http://zotero.org/groups/3431/items/PRYCUTRS;
-Narrative Collage of Image Collections by Scene Graph Recombination#http://zotero.org/groups/3431/items/9Q6KU7FV;
-Similarity-based visualization of large image collections#http://zotero.org/groups/3431/items/FF2IHK9E;
-Content-Based Visual Summarization for Image Collections#http://zotero.org/groups/3431/items/QWPNISL7;
-Real-time visual navigation in huge image sets using similarity graphs#http://zotero.org/groups/3431/items/T9UJYMHW;
-Generating summaries for photographic images based on human affects#http://zotero.org/groups/3431/items/HJ264SP4;1;1;0;1;0;0;0;1;1;0;1;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;
-Ceiba: Scalable visualization of phylogenies and 2D/3D image collections#http://zotero.org/groups/3431/items/4CV8CZXR;
-A joint optimization model for image summarization based on image content and tags#http://zotero.org/groups/3431/items/25TPE85J;
-ClusterTag: Interactive visualization, clustering and tagging tool for big image collections#http://zotero.org/groups/3431/items/C5YEJ2YL;1;0;0;2;1;0;0;0;1;0;1;0;1;0;0;1;1;1;1;1;0;0;2;0;1;1;1;0;0;0;0;0;0;
-PRISM: Concept-preserving social image search results summarization#http://zotero.org/groups/3431/items/IA8E5FHA;
-A knowledge-based semantic approach for image collection summarization#http://zotero.org/groups/3431/items/YBP4748U;
-An Approach to Generate a Caption for an Image Collection Using Scene Graph Generation#http://zotero.org/groups/3431/items/HPDC5VZ6;1;0;1;1;0;1;1;0;0;1;0;1;0;0;1;0;0;0;0;0;1;1;0;1;0;0;0;1;1;1;1;1;0;
-Visualizing multimodal image collections#http://zotero.org/groups/3431/items/V7VMZ3FL;
-ICLIC: Interactive categorization of large image collections#http://zotero.org/groups/3431/items/FFCPXZN3;
-Data Analysis on Multivariate Image Set#http://zotero.org/groups/3431/items/A7MS2YXS;
-Large image collection visualization using perception-based similarity with color features#http://zotero.org/groups/3431/items/RQECLPFX;
-PRISM: Concept-preserving summarization of top-k social image search results#http://zotero.org/groups/3431/items/LUJ52FFA;
-Method for exploring generative adversarial networks (gans) via automatically generated image galleries#http://zotero.org/groups/3431/items/GQ9EHRIE;
-Dataset fingerprints: Exploring image collections through data mining#http://zotero.org/groups/3431/items/JKFJPWSU;
-Visual summarization of image collections by fast RANSAC#http://zotero.org/groups/3431/items/ERRZFZW9;
-Hybrid image summarization by hypergraph partition#http://zotero.org/groups/3431/items/WTECAIT6;
-Multimodal latent topic analysis for image collection summarization#http://zotero.org/groups/3431/items/6N94DJ5E;
-Advanced Interface Design for IIIF A Digital Tool to Explore Image Collections at Different Scales#http://zotero.org/groups/3431/items/HKYHHKXN;
-Semantic Image Collection Summarization with Frequent Subgraph Mining#http://zotero.org/groups/3431/items/FPGISWWN;
-Discovering collective narratives of theme parks from large collections of visitors' Photo streams#http://zotero.org/groups/3431/items/KWGY7JFH;
-Personalized representative image selection for shared photo albums#http://zotero.org/groups/3431/items/IMGD8389;
-Visual berrypicking in large image collections#http://zotero.org/groups/3431/items/HUI7SATG;
-Incremental hierarchical indexing and visualisation of large image collections#http://zotero.org/groups/3431/items/VGRK58VY;
-Concept preserving visual summarization of social image search results#http://zotero.org/groups/3431/items/IE2QHFK5;
-An Associate-Rule-Aware Multidimensional Data Visualization Technique and Its Application to Painting Image Collections#http://zotero.org/groups/3431/items/4W6QRBLR;
-A Semantic-Based Method for Visualizing Large Image Collections#http://zotero.org/groups/3431/items/9V74JR4E;
-Combining Semantic and Visual Image Graphs for Efficient Search and Exploration of Large Dynamic Image Collections#http://zotero.org/groups/3431/items/KE3L5ITZ;
-IGraph: A graph-based technique for visual analytics of image and text collections#http://zotero.org/groups/3431/items/I6QUTQEM;
-Seeing the big picture from microblogs: Harnessing social signals for visual event summarization#http://zotero.org/groups/3431/items/8RTPFWQI;
-ConceptLearner: Discovering visual concepts from weakly labeled image collections#http://zotero.org/groups/3431/items/D2X68QQL;
-Multimodal-based diversified summarization in social image retrieval#http://zotero.org/groups/3431/items/JMD2ATBC;
-APoD eXplorer: Recommendation system and interactive exploration of a dynamic image collection#http://zotero.org/groups/3431/items/5NGWL8Y4;
-Towards Captioning an Image Collection from a Combined Scene Graph Representation Approach#http://zotero.org/groups/3431/items/SXEI9VD3;
-Motif Mining: Finding and Summarizing Remixed Image Content#http://zotero.org/groups/3431/items/252RZ28U;
-Graph navigation for exploring very large image collections#http://zotero.org/groups/3431/items/5BDVQVVJ;
-Generating visual story graphs with application to photo album summarization#http://zotero.org/groups/3431/items/CMMBXLJF;
-CLAN photo presenter: Multi-modal summarization tool for image collections#http://zotero.org/groups/3431/items/AJ2T49K4;
-Interactive browsing of image collections on mobile devices#http://zotero.org/groups/3431/items/ZB3CKS5Y;
-Learning crowdsourced user preferences for visual summarization of image collections#http://zotero.org/groups/3431/items/PECZIRJ3;
-A novel variety-based 3DTV content generation scheme for casually captured sparse photo collections#http://zotero.org/groups/3431/items/KY7MSQIB;
-A kernel-based framework for image collection exploration#http://zotero.org/groups/3431/items/5TRRFRRV;
-Generating visual summaries of geographic areas using community-contributed images#http://zotero.org/groups/3431/items/5UHA4898;
-Interactive exploration of large photo libraries#http://zotero.org/groups/3431/items/X2L2PXL3;
-MICS: Multimodal image collection summarization by optimal reconstruction subset selection#http://zotero.org/groups/3431/items/TK35ZVXV;
-Visualization of Photo Album: Selecting a Representative Photo of a Specific Event#http://zotero.org/groups/3431/items/TI8TXURK;
-Comparing Personal Image Collections with PICTuReVis#http://zotero.org/groups/3431/items/EEELP2V2;
-Story Albums: Creating Fictional Stories From Personal Photograph Sets#http://zotero.org/groups/3431/items/5YR9NTR2;
-Album Quickview in Comic-like Layout via Quartet Analysis#http://zotero.org/groups/3431/items/UXVFXIU4;
-Visualizing Natural Image Statistics#http://zotero.org/groups/3431/items/KNKIPBGZ;
-Image Collage on Arbitrary Shape via Shape-Aware Slicing and Optimization#http://zotero.org/groups/3431/items/P4DWR7LL;
+Paper#Ref,Adaptive Systems,Evaluation of Systems and Algorithms,Model Steering and Active Learning,Replication,Report Generation,Understanding the User,Grammar,Graph,Model,Sequence,Classification Models,Pattern Analysis,Probabilistic Models/Prediction,Program Synthesis,Interactive Visual Analysis
+Srinivasan et al. (2018)#RGXHI7X3,1,1,0,0,0,0,3,0,0,0,0,0,0,2,0
+Setlur et al. (2016)#ZLBRWV6T,1,0,1,0,0,0,3,0,0,0,2,0,2,0,0
+Dabek and Caban (2016)#JW73WHI6,1,0,0,0,0,1,3,0,0,0,2,0,0,0,0
+Mutlu et al. (2016)#KSUN2DYH,1,0,0,0,0,1,3,0,0,0,0,2,2,0,0
+Chen et al. (2014)#QHJVQK6L,1,0,0,0,0,0,3,0,0,0,0,0,0,2,0
+Koch et al. (2014)#V676W7IQ,1,0,0,0,0,0,3,0,0,0,0,0,0,2,0
+Scheepens et al. (2015)#9YN7BS7M,1,1,0,1,1,0,0,3,0,0,0,0,0,0,2
+Shrinivasan and van Wijk (2009)#FCS2V457,1,0,0,1,1,0,0,3,0,0,0,2,0,0,0
+Gotz and Wen (2009)#U2PILWLY,1,0,0,0,0,1,0,3,0,0,0,2,2,0,2
+Endert (2014)#IKTBZGDP,1,0,1,0,0,1,0,0,3,0,0,0,0,0,2
+Endert et al. (2012)#NXKKXLPH,1,0,1,0,0,0,0,0,3,0,0,0,2,0,0
+MacInnes et al. (2010)#8AH3YAIT,1,0,1,0,0,0,0,0,3,0,2,2,0,0,0
+Boukhelifa et al. (2013)#EQ9N5WMA,1,0,1,1,0,1,0,0,3,0,0,0,2,0,0
+Endert (2015)#ED33BT8U,1,0,0,0,0,1,0,0,3,0,2,0,2,0,0
+Ottley et al. (2019)#HNAWLERW,1,0,0,0,0,1,0,0,3,0,0,0,2,0,0
+Gotz et al. (2016)#3KWJPTB4,1,0,0,0,0,1,0,0,3,0,0,0,2,0,0
+Healey and Bennis (2012)#7F3I4DLN,1,0,0,0,0,1,0,0,3,0,2,0,2,0,0
+Hu et al. (2019)#E2ZNXVEV,1,0,0,0,0,0,0,0,3,0,0,0,2,0,0
+Correll and Gleicher (2016)#LSFUBTEL,1,1,0,0,0,0,0,0,0,3,2,2,0,0,0
+Setlur et al. (2019)#2K7GDFTD,1,0,0,0,0,1,0,0,0,3,0,0,0,0,2
+Steichen et al. (2014)#V9MC4W62,1,0,0,0,0,1,0,0,0,3,2,2,0,0,0
+Guo et al. (2019)#PP263ZZK,1,0,0,0,0,0,0,0,0,3,0,0,2,0,0
+Wang et al. (2014)#DEAZAH27,1,1,0,0,0,0,0,0,0,0,0,2,0,0,0
+Lee et al. (2019)#PNPP9ST3,1,0,1,0,1,0,0,0,0,0,0,0,2,0,0
+Ceneda et al. (2019)#VYZVVW9A,1,0,1,0,1,0,0,0,0,0,2,0,2,0,0
+Ragan et al. (2015)#KQ5QYSEH,1,0,1,0,1,1,0,0,0,0,2,2,0,0,0
+Micallef et al. (2017)#9VRHFQQ2,1,0,1,0,0,1,0,0,0,0,0,0,2,0,0
+Wegba et al. (2018)#NKCRW296,1,0,0,0,1,0,0,0,0,0,2,0,0,0,2
+Toker et al. (2014)#BS55T5ZS,1,0,0,0,0,1,0,0,0,0,2,0,2,0,0
+Steichen and Conati (2013)#INSEJCQU,1,0,0,0,0,1,0,0,0,0,2,0,2,0,0
+Khan and Nandi (2019)#7I97WMYU,1,0,0,0,0,1,0,0,0,0,0,0,0,0,2
+Sacha et al. (2018)#NBR25CIW,1,0,0,0,0,0,0,0,0,0,2,0,0,0,0
+Walch et al. (2019)#3YPQL4MC,1,0,0,0,0,0,0,3,0,0,0,0,0,0,2
+Dextras-Romagnino and Munzner (2019)#KCZ6HA82,0,1,0,0,0,1,0,3,0,0,0,2,0,0,0
+Ren et al. (2019)#E5LEI9YV,0,1,0,0,0,0,3,0,0,0,0,0,0,0,0
+Bors et al. (2019)#EQSZ7SBT,0,1,0,0,0,0,0,3,0,0,0,2,0,0,0
+Shadoan and Weaver (2013)#QE2HCYLN,0,1,0,0,0,0,0,3,0,0,0,2,0,0,0
+Gomez and Laidlaw (2012)#9VKCFY9H,0,1,0,0,1,1,0,0,3,0,0,0,2,0,0
+Liu et al. (2017)#3V8Q22ZU,0,1,0,1,0,0,0,0,0,3,2,2,0,0,0
+Smuc et al. (2009)#E5NQI22K,0,1,0,1,0,0,0,0,0,3,0,0,0,0,2
+Bylinksii et al. (2017)#V29B6PWV,0,1,0,0,0,1,0,0,0,3,2,2,0,0,0
+Fröhler et al. (2016)#QKRIRBKI,0,1,0,0,0,0,0,0,0,3,2,0,0,0,0
+Blascheck et al. (2016)#UFWTHT75,0,1,0,0,0,0,0,0,0,3,0,0,0,0,2
+Moritz et al. (2015)#H76LSXQH,0,0,1,0,0,0,3,0,0,3,0,2,0,0,0
+Wongsuphasawat et al. (2016)#U47GRW4J,0,0,1,0,0,0,3,0,0,0,2,0,0,0,0
+Muthumanickam et al. (2016)#LPHXG32B,0,0,1,0,0,0,3,0,0,0,0,2,0,2,0
+Hoque et al. (2018)#E6T356LJ,0,0,1,0,0,0,3,0,0,0,0,0,2,0,0
+Weaver (2009)#PQMLCJSP,0,0,1,0,0,0,3,0,0,0,0,0,0,2,0
+Ferreira et al. (2013)#B2ARTX48,0,0,1,0,0,0,3,0,0,0,0,0,0,2,0
+Kadivar et al. (2009)#7Z8TRCT8,0,0,1,0,0,0,3,0,0,0,0,0,0,2,0
+Shrinivasan et al. (2009)#N4WNSJPN,0,0,1,0,0,0,0,3,0,0,0,0,0,2,0
+Schlinder et al. (2013)#YPUI6A4X,0,0,1,0,0,0,0,3,0,0,0,0,0,0,2
+Kwon et al. (2017)#2G8Q7TN6,0,0,1,0,1,0,0,0,3,0,0,2,0,0,0
+Bradel et al. (2014)#R26CWHUC,0,0,1,0,0,1,0,0,3,0,0,0,0,2,0
+Pezzotti et al. (2015)#JGVV4JK3,0,0,1,0,0,0,0,0,3,0,2,0,2,0,0
+Brown et al. (2012)#QX6ZTMBL,0,0,1,0,0,0,0,0,3,0,2,0,0,0,0
+Endert et al. (2012)#C53PABJ7,0,0,1,0,0,0,0,0,3,0,2,0,0,0,0
+Cook et al. (2015)#8TLX5VAD,0,0,1,0,0,0,0,0,3,0,0,2,0,0,0
+Kunkel et al. (2017)#MDNHBVY6,0,0,1,0,0,0,0,0,3,0,0,0,2,0,0
+Kim et al. (2016)#VST4SLQH,0,0,1,0,0,0,0,0,3,0,0,0,0,0,2
+Fuchs et al. (2009)#IBX4QNCT,0,0,1,0,0,0,0,0,3,3,0,0,2,0,0
+Brown et al. (2014)#XCR27ASF,0,0,1,0,0,1,0,0,0,3,2,0,2,0,0
+Cavallo and Demiralp (2018)#D2LSEWVB,0,0,1,0,0,0,0,0,0,3,0,0,0,2,0
+Ribicic et al. (2013)#HG2IUVX7,0,0,1,0,0,0,0,0,0,3,0,0,0,0,2
+Hossain et al. (2012)#2KWCN9LW,0,0,1,0,0,0,0,0,0,3,2,0,0,0,0
+Sherkat et al. (2018)#48IKB24F,0,0,1,0,0,0,0,0,0,0,2,0,0,0,2
+Gao et al. (2015)#3BM8YZA5,0,0,1,0,0,0,0,0,0,0,0,0,0,0,2
+Hottelier et al. (2014)#T6W8KYQH,0,0,1,0,0,0,0,0,0,0,0,0,0,0,2
+Callahan et al. (2006)#YMXE2ERI,0,0,0,1,0,0,0,3,0,0,0,0,0,2,0
+Rübel and Bowen (2018)#ZWURRSGQ,0,0,0,1,0,0,3,0,0,0,2,0,0,0,0
+Kandel et al. (2011)#93PMHRB4,0,0,0,1,0,0,3,0,0,0,0,0,0,2,0
+Chung et al. (2010)#9MS8EZDR,0,0,0,1,1,0,0,3,0,0,0,0,0,0,2
+Gotz et al. (2017)#QWR9N3YA,0,0,0,1,0,1,0,0,3,0,0,2,0,0,0
+Xu et al. (2018)#EL25LM58,0,0,0,1,1,0,0,0,0,3,2,0,2,0,0
+Loorak et al. (2018)#EDE2JQIA,0,0,0,1,0,1,0,0,0,3,2,0,0,0,0
+Smith et al. (2018)#XQRRRL2Y,0,0,0,1,0,1,0,0,0,3,0,0,2,0,0
+Stitz et al. (2019)#PW3BIEXI,0,0,0,1,0,0,0,0,0,3,0,2,0,0,0
+Andrienko et al. (2011)#KCBNWBND,0,0,0,1,0,0,0,0,0,0,0,0,0,0,2
+Cappers and van Wijk (2018)#GQUBH7PC,0,0,0,1,0,0,0,0,0,0,0,2,0,0,0
+Zgraggen et al. (2015)#LXFR6HIF,0,0,0,1,0,0,0,0,0,0,0,0,0,2,0
+Ragan et al. (2015)#44RDA3W7,0,0,0,0,1,1,3,0,0,0,0,0,0,2,2
+Walker et al. (2013)#7J3C2AK6,0,0,0,0,1,0,3,0,0,0,0,0,0,2,0
+Porteous et al. (2010)#3XZBKY9C,0,0,0,0,1,1,0,3,0,0,0,0,0,2,0
+Mathisen et al. (2019)#TIFVFITN,0,0,0,0,1,0,0,3,0,0,0,0,0,0,2
+Gratzl et al. (2016)#YMWU3VES,0,0,0,0,1,0,0,3,0,0,0,0,0,0,2
+Choe et al. (2015)#RD9RMI8J,0,0,0,0,1,1,0,0,0,3,2,0,0,0,2
+Willett et al. (2013)#MH9PS9PA,0,0,0,0,1,0,0,0,0,0,2,0,0,0,0
+Bors et al. (2019)#W9NVM37Z,0,0,0,0,0,1,0,3,0,0,0,0,0,0,2
+Wall et al. (2018)#4WTJ9LXH,0,0,0,0,0,1,0,0,3,0,2,0,0,0,0
+Liu et al. (2017)#BCS5J4JW,0,0,0,0,0,1,0,0,0,3,2,2,0,0,0
+Cho et al. (2017)#XQEXTQW6,0,0,0,0,0,1,0,0,0,3,2,2,0,0,0
+Blascheck (2018)#ZSPP2VUD,0,0,0,0,0,1,0,0,0,3,2,0,0,2,0
+Dou et al. (2009)#EHPSNKBD,0,0,0,0,0,1,0,0,0,3,2,0,0,2,0
+Boukhelifa (2019)#6Q6E2Q39,0,0,0,0,0,1,0,0,0,3,2,0,0,0,0
+Guo et al. (2015)#D7YXW7QW,0,0,0,0,0,1,0,0,0,3,2,0,0,0,0
+Feng et al. (2019)#VVI899IG,0,0,0,0,0,1,0,0,0,3,0,0,2,0,0
+Battle and Heer (2019)#N6NU7D2L,0,0,0,0,0,1,0,0,0,3,0,2,2,0,0
+Nguyen et al. (2018)#RZDXH9PW,0,0,0,0,0,1,0,0,0,3,0,2,2,0,0
+Wei et al. (2012)#YL9XZFNS,0,0,0,0,0,1,0,0,0,3,0,0,2,0,0
+Blascheck et al. (2016)#XWY72EPW,0,0,0,0,0,1,0,0,0,3,0,0,0,0,2
+Toker et al. (2017)#WVRN8R2T,0,0,0,0,0,1,0,0,0,0,2,0,2,0,0
+Yu and Silva (2020)#C54948XU,0,0,0,0,0,1,0,0,0,0,2,0,0,0,0
+Mannino and Abouzied (2019)#MENJWCDP,0,0,0,0,0,1,0,0,0,0,0,2,2,0,0
+Kodagoda et al. (2013)#L4RLQJB5,0,0,0,0,0,1,0,0,0,0,0,2,0,0,0
+Madanagopal et al. (2019)#T8C23C3F,0,0,0,0,0,1,0,0,0,0,0,0,0,2,0
+Kondo and Collins (2014)#SFGPVJXT,0,0,0,0,0,0,0,0,3,0,0,0,0,0,2

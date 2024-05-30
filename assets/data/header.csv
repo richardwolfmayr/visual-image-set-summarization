@@ -1,35 +1,16 @@
-col_name;img_src;class;category
-Input Modalities > Image;none;;
-Derived Data > Affective Features;none;;
-Derived Data > Scene Graphs;none;;
-Derived Data > Image Features;none;;
-..> Image Features > Global Image Features;none;;
-Summarization > Combined Scene Graph;none;;
-Summarization > Maximum Common Subgraph;none;;
-Summarization > Ranking;none;;
-Summarization > Clustering;none;;
-Summarizing Entities > Captions;none;;
-Summarizing Entities > Representative Images;none;;
-Visual Layout > None;none;;
-Visual Layout > Embedding;none;;
-Visual Layout > List;none;;
-Interactions > None;none;;
-Interactions > Grouping;none;;
-Interactions > Turning;none;;
-Interactions > Zooming;none;;
-Interactions > Selection;none;;
-Tasks > Annotation;none;;
-Tasks > Captioning;none;;
-Tasks > Summarization;none;;
-Tasks > Interactive Exploration;none;;
-Set size > <100;none;;
-Set size > Thousands;none;;
-Application Area > medical;none;;
-Evaluation > None;none;;
-Evaluation > Metrics;none;;
-..> Metrics > ROGUE;none;;
-..> Metrics > BLEU;none;;
-..> Metrics > CIDEr;none;;
-..> Metrics > BERTScore;none;;
-Evaluation > User study;none;;
-
+col_name,img_src,class,category
+Adaptive Systems,adaptivesystems_c.png,,WHY
+Evaluation of Systems and Algorithms,evaluation_c.png,,WHY
+Model Steering and Active Learning,modelsteering_c.png,,WHY
+Replication,replication_c.png,,WHY
+Report Generation,ReportGeneration_c.png,,WHY
+Understanding the User,user_c.png,pad,WHY
+Grammar,grammar_c.png,,WHAT
+Graph,graph_c.png,,WHAT
+Model,model_c.png,,WHAT
+Sequence,sequence_c.png,pad,WHAT
+Classification Models,classification_c.png,,HOW
+Pattern Analysis,pattern_c.png,,HOW
+Probabilistic Models/Prediction,prediciton_c.png,,HOW
+Program Synthesis,programsynthesis_c.png,,HOW
+Interactive Visual Analysis,interactivevisualanalysis_c.png,,HOW

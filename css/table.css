@@ -148,9 +148,3 @@ html {
   /* .cbFilter, .table-header-rotated th.rotate-45 img{
       transform: rotate(45deg);
   } */
-
-
-/* add padding to create some space between the titles since I use titles which can span multiple lines*/
-.objecttable td {
-    padding-bottom: 10px;
-}
