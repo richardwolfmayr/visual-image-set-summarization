@@ -3,7 +3,8 @@
 # Document Profiles.xlsx is the export from MAXQDA Reports-->Document Profiles
 # reworked to create objects and only later write them to the file
 
-# difference to data-preparation_reworked: the higher level categories are also tagged when a lower level category is tagged (at least that was the goal)
+# difference to data-preparation_reworked: the higher level categories are also tagged when a lower level category is tagged (at least that was the goal).
+# only for category and subcategory, not for subsubcategory and lower. So from MAXQDA it is important that subcategories are tagged, even if the subsubcategories are tagged there
 
 import json
 import re
@@ -31,49 +32,30 @@ df = pd.read_excel('Document Profiles.xlsx', sheet_name='Sheet1', header=0)
 def get_tag_structure():
     tag_structure = []
     last_category = None
-    last_subcategory = None
     for col in df.columns[3:]:
         pattern = re.compile(r'^(?!\.\.)(.*?)(?: > (.*))?$')
         match = pattern.match(col)
         if match:
             category = match.group(1)
-            subcategory = "none"
             if match.group(2):
                 # if that category has not been stored yet, store it
-                # this check is needed, if this category has never been tagged, but only the subcategories
+                # this check is needed, if this category has never been tagged, but only the subcategories. If it has been tagged on its own, it is already stored
                 if last_category != category:
-                    tag_structure.append({"category": category, "subcategory": "none", "subsubcategory": "none", "original_col": "column for category created in get_tag_structure()"})
+                    tag_structure.append({"category": category, "subcategory": "none", "original_col": "column for category created in get_tag_structure()"})
                 subcategory = match.group(2)
                 # if it comes here, this subcategory has been tagged, but without a subsubcategory
                 # if that subcategory has not been stored yet, store it
-                if last_subcategory != subcategory:
-                    tag_structure.append({"category": category, "subcategory": subcategory, "subsubcategory": "none", "original_col": col})
-                else:
-                    print("DOES IT GO HERE?")
+                tag_structure.append({"category": category, "subcategory": subcategory, "original_col": col})
                 last_subcategory = subcategory
             else:
-                # it comes here if this category has been tagged, but without a subcategory ever beeing tagged (that happend for example with "Derived Data" -->
-                # "Graph" because various graphs have been tagged but never the subcategory "Graph" itself)
+                # it comes here if this category has been tagged without a subcategory. e.g. "Derived Data" without " > Image Features / Visual Features"
                 # if that category has not been stored yet, store it
                 if last_category != category:
-                    tag_structure.append({"category": category, "subcategory": "none", "subsubcategory": "none", "original_col": col})
+                    tag_structure.append({"category": category, "subcategory": "none", "original_col": col})
                 else:
                     print("DOES IT GO HERE?")
             last_category = category
-        else:
-            pattern = re.compile(r'^\.\.> (.*) > (.*)$') # pattern for the subsubcategory
-            match = pattern.match(col)
-            if match:
-                subcategory = match.group(1)
-                if last_subcategory != subcategory:
-                    # if this subcategory has not been tagged itself, but only subsubcategories: tag it
-                    tag_structure.append({"category": last_category, "subcategory": subcategory, "subsubcategory": "none", "original_col": "column for subcategory created in get_tag_structure()"})
-                subsubcategory = match.group(2)
-                tag_structure.append({"category": last_category, "subcategory": subcategory, "subsubcategory": subsubcategory, "original_col": col})
-                last_subcategory = subcategory
-            else:
-                print(f"ERROR: No match: {col}")
-
+            # ignore the subsubcategories. category is optional, subcategory is mandatory, subsubcategory is optional. This is how it should be tagged in MAXQDA
     return tag_structure
 
 
@@ -87,25 +69,14 @@ with open('header.csv', 'w') as f:
     # write one line for each category, one line for each subcategory and one line for each subsubcategory
     category_printed = []
     subcategory_printed = []
-    # for tag in tag_structure:
-    #     if tag['category'] not in category_printed:
-    #         f.write(f"{tag['category']};none;;{tag['category']}\n")
-    #         category_printed.append(tag['category'])
-    #     if tag['subcategory'] != "none" and tag['subcategory'] not in subcategory_printed:
-    #         f.write(f"{tag['subcategory']};none;;{tag['category']}\n")
-    #         subcategory_printed.append(tag['subcategory'])
-    #     # if tag['subsubcategory'] != "none":
-    #     #     f.write(f"{tag['subsubcategory']};none;;{tag['category']}\n")
-
     for tag in tag_structure:
         if tag['category'] and tag['subcategory'] == "none" :
             f.write(f"{tag['category']};none;;{tag['category']}\n")
             category_printed.append(tag['category'])
-        if tag['subcategory'] != "none" and tag['subsubcategory'] == "none":
+        if tag['subcategory'] != "none":
             f.write(f"{tag['subcategory']};none;;{tag['category']}\n")
             subcategory_printed.append(tag['subcategory'])
-        # if tag['subsubcategory'] != "none":
-        #     f.write(f"{tag['subsubcategory']};none;;{tag['category']}\n")
+
 
 
 
@@ -127,11 +98,10 @@ def create_document_tags_list(df, tag_structure):
             # if column_name == "Derived Data > Image Features / Visual Features":
             #     print(f"Tag: {tag}")
 
-            has_tag = column_name in df.columns and row[column_name] != 0
+            has_tag = column_name in df.columns and row[column_name] != 0 # TODO what happens with the created columns? ==> they are not in the df.columns
             tag_info = {
                 'category': tag['category'],
                 'subcategory': tag['subcategory'],
-                'subsubcategory': tag['subsubcategory'],
                 'has_tag': has_tag
             }
             document_info['tags'].append(tag_info)
@@ -246,13 +216,17 @@ with open('table2-combCite.csv', 'w') as f:
                         category_number = 10
                     elif category == "Evaluation":
                         category_number = 11
-                    else:  # TODO: this should not happen
+                    elif category == "TestGroup1-Category":
+                        category_number = 2
+                    elif category == "TestGroup2-Category":
+                        category_number = 3
+                    else:  # TODO: this should not happen.
                         print(f"ERROR: Category not found: {category}")
                         category_number = 1
 
                     # for this document find if has_tag is true or false for this tag
                     for tag in document['tags']:
-                        if tag['category'] == category and tag['subcategory'] == col['subcategory'] and tag['subsubcategory'] == col['subsubcategory']:
+                        if tag['category'] == category and tag['subcategory'] == col['subcategory']:
                             if tag['has_tag']:
                                 f.write(f"{category_number};")
                             else:

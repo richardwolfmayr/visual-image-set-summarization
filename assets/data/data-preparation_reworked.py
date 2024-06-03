@@ -11,7 +11,7 @@ import pandas as pd
 display_level_2 = False # TODO: actually I would need the same system as for the categories (print the category only once ---> print the subcategory only once when there are multiple subsubcategories)
 
 # TODO: in order to get e.g. "Input Data" checked, I have to check for "Input Data" and "Input Data > Data Types" and "Input Data > Data Types > Text" etc.
-# OR I have to tag "Input Data" by hand if there is a subcategory that is tagged
+# OR I have to tag "Input Data" by hand if there is a subcategory that is tagged ==> this is the solution I will go for
 
 
 # Load the zotero_data
@@ -27,52 +27,16 @@ with open('main_clean_20.json', 'r') as f:
 # Read in the MAXQDA data
 df = pd.read_excel('Document Profiles.xlsx', sheet_name='Sheet1', header=0)
 
-# create a function for going over the header data from Document Profiles.xlsx
-# get the header from the MAXQDA data with df.columns and iterate over it, skipping the first 3 columns
-# def get_tag_structure():
-#     printed_categories = []
-#     tag_structure = []
-#
-#     for col in df.columns[3:]:
-#         pattern = re.compile(r'^(?!\.\.)(.*?)(?: > (.*))?$')
-#         match = pattern.match(col)
-#         if match:
-#             category = match.group(1)
-#             if category not in printed_categories:
-#                 printed_categories.append(category)
-#                 tag_structure.append({"category": category, "subcategory": "none", "subsubcategory": None})
-#             if match.group(2):
-#                 tag_structure.append({"category": category, "subcategory": match.group(2), "subsubcategory": "none"})
-#         else:
-#             print(f"No match: {col}")
-#
-#     return tag_structure
-
 
 def get_tag_structure():
     tag_structure = []
-    last_category = None
-    last_subcategory = None
     for col in df.columns[3:]:
         pattern = re.compile(r'^(?!\.\.)(.*?)(?: > (.*))?$')
         match = pattern.match(col)
         if match:
             category = match.group(1)
-            last_category = category
-            subcategory = "none"
-            if match.group(2):
-                subcategory = match.group(2)
-                last_subcategory = subcategory
-            tag_structure.append({"category": category, "subcategory": subcategory, "subsubcategory": "none", "original_col": col})
-        else:
-            pattern = re.compile(r'^\.\.> (.*) > (.*)$') # pattern for the subsubcategory
-            match = pattern.match(col)
-            if match:
-                subcategory = match.group(1)
-                subsubcategory = match.group(2)
-                tag_structure.append({"category": last_category, "subcategory": subcategory, "subsubcategory": subsubcategory, "original_col": col})
-            else:
-                print(f"ERROR: No match: {col}")
+            subcategory = match.group(2)
+            tag_structure.append({"category": category, "subcategory": subcategory, "original_col": col})
 
     return tag_structure
 
@@ -83,7 +47,7 @@ tag_structure = get_tag_structure()
 with open('header.csv', 'w') as f:
     f.write("col_name;img_src;class;category\n")
     # now write the tag structure into the file
-    # write one line for each category, one line for each subcategory and one line for each subsubcategory
+    # write one line for each category, one line for each subcategory
     category_printed = []
     subcategory_printed = []
     for tag in tag_structure:
@@ -119,7 +83,6 @@ def create_document_tags_list(df, tag_structure):
             tag_info = {
                 'category': tag['category'],
                 'subcategory': tag['subcategory'],
-                'subsubcategory': tag['subsubcategory'],
                 'has_tag': has_tag
             }
             document_info['tags'].append(tag_info)
@@ -234,22 +197,22 @@ with open('table2-combCite.csv', 'w') as f:
                         category_number = 10
                     elif category == "Evaluation":
                         category_number = 11
+                    elif category == "TestGroup1-Category":
+                        category_number = 2
+                    elif category == "TestGroup2-Category":
+                        category_number = 3
                     else:  # TODO: this should not happen
                         print(f"ERROR: Category not found: {category}")
                         category_number = 1
 
                     # for this document find if has_tag is true or false for this tag
                     for tag in document['tags']:
-                        if tag['category'] == category and tag['subcategory'] == col['subcategory'] and tag['subsubcategory'] == col['subsubcategory']:
+                        if tag['category'] == category and tag['subcategory']:
                             if tag['has_tag']:
                                 f.write(f"{category_number};")
                             else:
                                 f.write("0;")
                             break
-
-
-
-
                 break
 
 
