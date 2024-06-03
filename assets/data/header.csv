@@ -45,3 +45,69 @@ Latent Topic Analysis;none;;Summarization
 Ranking;none;;Summarization
 Constraint Satisfaction;none;;Summarization
 Matrix factorization;none;;Summarization
+Marks;none;;Summarizing Entities
+Captions;none;;Summarizing Entities
+Tags;none;;Summarizing Entities
+Representative Images;none;;Summarizing Entities
+None;none;;Summarizing Entities
+None;none;;Visual Layout
+Grid;none;;Visual Layout
+Word cloud;none;;Visual Layout
+Map;none;;Visual Layout
+Collage;none;;Visual Layout
+images surrounding tag cloud;none;;Visual Layout
+None OR NOT STATED;none;;Visual Layout
+Timeline;none;;Visual Layout
+Treemap;none;;Visual Layout
+Labeled;none;;Visual Layout
+Node-Link DIagram;none;;Visual Layout
+Embedding;none;;Visual Layout
+List;none;;Visual Layout
+Bar chart;none;;Visual Layout
+Circular;none;;Visual Layout
+None;none;;Interactions
+Tagging;none;;Interactions
+None;none;;Interactions
+Zooming;none;;Interactions
+Grouping;none;;Interactions
+Selection;none;;Interactions
+Turning;none;;Interactions
+Querying;none;;Interactions
+Filtering;none;;Interactions
+Focus + context;none;;Interactions
+Panning (+);none;;Interactions
+Exploration;none;;Tasks
+labeling / classification ... is this part of the Thesis?;none;;Tasks
+Editing/Organizing;none;;Tasks
+Managing. Providing an Overview over personal Photo Album;none;;Tasks
+Captioning;none;;Tasks
+Summarization;none;;Tasks
+Making Sense of Structure .... Summarization?;none;;Tasks
+Finding Needle in Haystack;none;;Tasks
+Storytelling;none;;Tasks
+Analytic categorization;none;;Tasks
+Comparison;none;;Tasks
+Navigation;none;;Tasks
+None;none;;Set size
+not really mentioned;none;;Set size
+<100;none;;Set size
+Tens;none;;Set size
+Millions;none;;Set size
+Hundreds of Thousands;none;;Set size
+Tens of Thousands;none;;Set size
+Thousands;none;;Set size
+Hundreds;none;;Set size
+Dozens;none;;Set size
+forensics;none;;Application Area
+personal photo album;none;;Application Area
+medical;none;;Application Area
+General purpose;none;;Application Area
+generic;none;;Application Area
+None;none;;Evaluation
+User study / Empirical Study (+);none;;Evaluation
+Qualitative Evaluation;none;;Evaluation
+Pyramid Approach;none;;Evaluation
+Metrics / performance Measures = Quantitative Experiments? (+);none;;Evaluation
+None;none;;Evaluation
+Quantitative Experiments;none;;Evaluation
+Use case;none;;Evaluation
