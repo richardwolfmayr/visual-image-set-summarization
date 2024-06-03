@@ -1,0 +1,47 @@
+col_name;img_src;class;category
+Metadata;none;;Input Modalities
+Input Shape (predefined collage shape);none;;Input Modalities
+Image;none;;Input Modalities
+Predefined Story graph (+);none;;Input Modalities
+Supplementary Data;none;;Input Modalities
+Text / Tags / Categories (+) (+);none;;Input Modalities
+File structure;none;;Input Modalities
+None;none;;Derived Data
+Image Features / Visual Features (+);none;;Derived Data
+Quartets... Summarization or derived Data?;none;;Derived Data
+Scene Graphs;none;;Derived Data
+Categorization Tree;none;;Derived Data
+Tags Created;none;;Derived Data
+Aesthetic Score;none;;Derived Data
+Importance Score;none;;Derived Data
+Salient Objects;none;;Derived Data
+Bag of Words, Textual;none;;Derived Data
+Spectrum;none;;Derived Data
+Features created by NN;none;;Derived Data
+Concepts created by NN;none;;Derived Data
+Blur for Photo Quality Measurement;none;;Derived Data
+Distance Matrix;none;;Derived Data
+DoF Evaluation for Photo Quality Measurement;none;;Derived Data
+Image Aesthetic Appeal (Aspect Ratio, colorfulness, luminacne, sharpness);none;;Derived Data
+Sentiment derived from Text/Comments;none;;Derived Data
+Semantics;none;;Derived Data
+Histograms;none;;Derived Data
+Histogram intersection kernel HIK;none;;Derived Data
+Affective Features;none;;Derived Data
+Grayscale Images;none;;Derived Data
+Similarity matrix;none;;Derived Data
+Story graph;none;;Derived Data
+Affect/sentiment data;none;;Derived Data
+Classical image features;none;;Derived Data
+Distance Graph;none;;Derived Data
+Color Histograms;none;;Derived Data
+None;none;;Summarization
+User Selection;none;;Summarization
+Decompose the categorization tree;none;;Summarization
+Sub-Graph Selection (+);none;;Summarization
+Clustering;none;;Summarization
+Optimization for lowest reconstruction error;none;;Summarization
+Latent Topic Analysis;none;;Summarization
+Ranking;none;;Summarization
+Constraint Satisfaction;none;;Summarization
+Matrix factorization;none;;Summarization
