@@ -215,7 +215,7 @@ print(df[sort_columns].head())
 # df.apply(lambda x: print(x), axis=1) # applies "print" to each row
 # df[sort_columns].apply(lambda x: print(-x), axis=1)
 # df[sort_columns].apply(lambda x: print(tuple(-x)), axis=1) # https://www.geeksforgeeks.org/python-tuple-function/
-df[sort_columns].apply(lambda x: print(tuple(1 if val != 0 else 0 for val in x)), axis=1) # https://www.geeksforgeeks.org/python-tuple-function/
+# df[sort_columns].apply(lambda x: print(tuple(1 if val != 0 else 0 for val in x)), axis=1) # https://www.geeksforgeeks.org/python-tuple-function/
 # my_dict = {'apple': 1, 'banana': 2, 'cherry': 3}
 # my_tuple = tuple(my_dict.items())
 # my_tuple = tuple(my_dict.values())
