@@ -47,8 +47,8 @@ with open('header.csv', 'w') as f:
     # now write the tag structure into the file
     for tag in tag_structure:
         # if it has no subcategory, it is only a category-tag ==> don't print this, as we only print the subcategories
-        if tag['subcategory'] != "none":
-            f.write(f"{tag['subcategory']};none;;{tag['category']}\n")
+        if tag['subcategory'] != None:
+            f.write(f"{tag['category']} > {tag['subcategory']};none;;{tag['category']}\n")
 
 # the df is a mess ==> create a new structure that is easier to work with
 def create_document_tags_list(df, tag_structure):
@@ -82,7 +82,7 @@ document_tag_list = create_document_tags_list(df, tag_structure)
 
 # Print every tag that the first document has with has_tag == True for testing
 
-# works perfectly until here
+
 # for every column of structure: "categroy > tag" where there is a number in the document profiles, the tag information with category, subcategory is stored in the document_tag_list with has_tag = true,
 # for every other it is stored with has_tag = false
 # now: print it to table2-combCite.csv
@@ -90,8 +90,8 @@ with open('table2-combCite.csv', 'w') as f:
     f.write("Paper#Ref;")
     for tag in tag_structure:
         # if it has no subcategory, it is only a category-tag ==> don't print this, as we only print the subcategories
-        if tag['subcategory'] != "none":
-            f.write(f"{tag['subcategory']};")
+        if tag['subcategory'] != None:
+            f.write(f"{tag['category']} > {tag['subcategory']};") # IMPORTANT: write the "tag['category']" because otherwise, if we have the same subcategory word e.g. "none" in multiple categories, it will be overwritten in table.js when reading the data with d3.dsv(';', '../assets/data/table2-combCite.csv')
     f.write("\n")
     #same would work for subsub, but not programmed since I don't want it anyways
 
@@ -132,6 +132,9 @@ with open('table2-combCite.csv', 'w') as f:
             # so I have to remove them. I remove any special characters
             zotero_title_short = re.sub(r'\W+', '', zotero_title).lower()
             maxqda_title_short = re.sub(r'\W+', '', maxqda_title).lower()
+
+
+
             # todo: probably more cases like this
             # case insensitive comparison
             if maxqda_title_short in zotero_title_short:
@@ -171,11 +174,51 @@ with open('table2-combCite.csv', 'w') as f:
                         category_number = 1
 
                     for tag in document['tags']: # iterate over all tags in the document (no matter if has tag or not)
+                        if tag['subcategory'] == None:
+                            continue # skip the category-tags without subcategories
                         if tag['category'] == category and tag['subcategory'] == col['subcategory']: # the current tag/subcategory from tag_structure matches the current tag/subcategory in the document
                             if tag['has_tag']:
+                                # print(category_number)
                                 f.write(f"{category_number};")
                             else:
+                                # print(0)
                                 f.write("0;")
                             break
                 f.write("\n")
                 break
+
+
+# TODO: order table2-combCite.csv by has_tag per tag. e.g. every paper that has "metadata" in the category "Input Data" should be first, then every paper that has "text" in the category "Input Data" etc.
+# this is important for the visualization, as the order of the categories is important
+# The structure of the table2-combCite.csv file is now as follows:
+# A summarized photo visualization system with maximal clique finding algorithm#http://zotero.org/groups/3431/items/VUKTFF64;2;0;0;0;0;0;0;0;3;0;0;3;3;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;4;0;0;0;0;0;0;0;0;5;0;0;0;6;0;0;0;0;0;0;0;0;0;0;0;0;0;0;8;0;0;0;0;0;0;0;0;0;0;9;0;0;0;0;0;0;0;0;0;11;0;11;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;
+# II-20: Intelligent and pragmatic analytic categorization of image collections#http://zotero.org/groups/3431/items/PRYCUTRS;0;2;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;3;3;0;0;0;3;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;5;0;0;0;6;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;8;0;0;0;8;8;0;8;0;0;0;0;0;0;0;9;0;0;0;11;0;11;0;11;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;
+# Similarity-based visualization of large image collections#http://zotero.org/groups/3431/items/FF2IHK9E;0;2;2;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;3;3;0;0;3;0;0;0;0;0;3;3;0;0;0;4;0;0;0;0;4;0;0;0;5;0;0;0;0;0;0;6;0;6;0;0;0;0;0;0;0;0;8;0;0;0;0;0;0;0;0;0;0;0;0;0;9;0;0;0;0;0;0;11;11;0;0;0;0;0;0;0;0;0;7;0;7;0;7;7;0;0;0;0;0;
+import pandas as pd
+
+import pandas as pd
+
+# Load the CSV data into a pandas DataFrame
+file_path = 'table2-combCite.csv'
+df = pd.read_csv(file_path, delimiter=';')
+
+# Get all column names except the first one (which is usually the identifier column)
+sort_columns = df.columns[1:]
+
+# Ensure column names are stripped of any extra spaces
+df.columns = df.columns.str.strip()
+
+# Create a sorting key DataFrame by applying a lambda function that returns a tuple of negative values for each row
+sort_key = df[sort_columns].apply(lambda x: tuple(-x), axis=1)
+
+# Add the sorting key to the DataFrame
+df['sort_key'] = sort_key
+
+# Sort the DataFrame based on the sorting key
+df_sorted = df.sort_values(by='sort_key')
+
+# Drop the sorting key column
+df_sorted = df_sorted.drop(columns=['sort_key'])
+
+# Save the sorted DataFrame back to the same CSV file
+df_sorted.to_csv(file_path, index=False, sep=';')

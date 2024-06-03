@@ -2,6 +2,7 @@ const table = d3.select(".objecttable");
 
 all_data = [];
 
+
 d3.dsv(';', '../assets/data/header.csv')
     .then((data) => {
         tr = table.select(".sub-categories");
@@ -11,7 +12,9 @@ d3.dsv(';', '../assets/data/header.csv')
                     const th_enter = enter.append('th');
                     th_enter.html((d, idx) => {
                         // <th scope="col" class="rotate-45"><div><label><span><input value="1" class="cbFilter" type="checkbox"><img src="../assets/images/techniques/color_icons/adaptivesystems_c.png" height="20">Adaptive Systems</span></label></div></th>
-                        return `<div><span>${d.col_name}</span></div><p style="width:20px"><label><img src="../assets/images/techniques/color_icons/${d.img_src}" height="20"><input value="${idx + 1}" class="cbFilter" type="checkbox"> <input type="hidden" class="col_name" value="${d.col_name}"></label></p>`
+                        // dont print the whole col_name, but only the second part. The structure is category > tag and we only want the tag
+                        let tagname = d.col_name.split(' > ')[1];
+                        return `<div><span>${tagname}</span></div><p style="width:20px"><label><img src="../assets/images/techniques/color_icons/${d.img_src}" height="20"><input value="${idx + 1}" class="cbFilter" type="checkbox"> <input type="hidden" class="col_name" value="${d.col_name}"></label></p>`
                     });
                     th_enter.attr("class", (d, i) => `rotate-45 ${d.class}`);
                     th_enter.attr("scope", "col");
@@ -31,9 +34,7 @@ d3.dsv(';', '../assets/data/table2-combCite.csv')
         // updateTable(data);
     });
 
-
 function updateTable(data) {
-
     // ...inserted this due to some random bug, which always shows the first item of the dataset instead of the first item of the filtered dataset...
     var rows_temp = table.select("tbody")
         .selectAll("tr")
@@ -101,12 +102,10 @@ function update_filter_mask() {
     // console.log('-----filter--------');
     filtered = new Array(all_data.length);
     filtered.fill(true);
-
     $.each($('.cbFilter:checked'), function () {
         // col_name = $(this).siblings('span:first text').html();
         // col_name = $(this).siblings('text').html();
         col_name = $(this).siblings('.col_name')[0].value;
-
         for (var idx = 0; idx < all_data.length; idx++) {
             row = all_data[idx];
             value = row[col_name];
