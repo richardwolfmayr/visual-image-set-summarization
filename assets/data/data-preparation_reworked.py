@@ -188,7 +188,7 @@ with open('table2-combCite.csv', 'w') as f:
                 break
 
 
-# TODO: order table2-combCite.csv by has_tag per tag. e.g. every paper that has "metadata" in the category "Input Data" should be first, then every paper that has "text" in the category "Input Data" etc.
+# order table2-combCite.csv by has_tag per tag. e.g. every paper that has "metadata" in the category "Input Data" should be first, then every paper that has "text" in the category "Input Data" etc.
 # this is important for the visualization, as the order of the categories is important
 # The structure of the table2-combCite.csv file is now as follows:
 # A summarized photo visualization system with maximal clique finding algorithm#http://zotero.org/groups/3431/items/VUKTFF64;2;0;0;0;0;0;0;0;3;0;0;3;3;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;4;0;0;0;0;0;0;0;0;5;0;0;0;6;0;0;0;0;0;0;0;0;0;0;0;0;0;0;8;0;0;0;0;0;0;0;0;0;0;9;0;0;0;0;0;0;0;0;0;11;0;11;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;
