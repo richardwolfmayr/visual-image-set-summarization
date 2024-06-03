@@ -202,20 +202,41 @@ import pandas as pd
 file_path = 'table2-combCite.csv'
 df = pd.read_csv(file_path, delimiter=';')
 
-# Get all column names except the first one (which is usually the identifier column)
+# Get all column names except the first one which is Paper#Ref (the title and id of the paper)
 sort_columns = df.columns[1:]
 
 # Ensure column names are stripped of any extra spaces
 df.columns = df.columns.str.strip()
+sort_columns = sort_columns.str.strip()
 
 # Create a sorting key DataFrame by applying a lambda function that returns a tuple of negative values for each row
-sort_key = df[sort_columns].apply(lambda x: tuple(-x), axis=1)
+print(df.head())
+print(df[sort_columns].head())
+
+# experiments
+# df[sort_columns].apply(lambda x: print(x), axis=1) # applies "print" to each row
+# df.apply(lambda x: print(x), axis=1) # applies "print" to each row
+# df[sort_columns].apply(lambda x: print(-x), axis=1)
+df[sort_columns].apply(lambda x: print(tuple(-x)), axis=1) # https://www.geeksforgeeks.org/python-tuple-function/
+# my_dict = {'apple': 1, 'banana': 2, 'cherry': 3}
+# my_tuple = tuple(my_dict.items())
+# my_tuple = tuple(my_dict.values())
+# print(my_tuple)
+
+sort_key = df[sort_columns].apply(lambda x: tuple(1 if val != 0 else 0 for val in x), axis=1)
+# explanation: df[sort_columns] returns a DataFrame with only the columns that are in sort_columns, so it is just the same but without the first column
+# apply() is a method in pandas that applies a function along a specific axis of the DataFrame. https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html. axix=1 means that the function is applied to each row.
+# tuple() gets the values like this (1, 0, 0, 0, 1, 0,....)
+# I set the value to 1 if it is not 0, otherwise to 0, so I do not have 2s, 3s etc which could interfere with the sorting
+
 
 # Add the sorting key to the DataFrame
 df['sort_key'] = sort_key
 
 # Sort the DataFrame based on the sorting key
-df_sorted = df.sort_values(by='sort_key')
+print(df.head())
+df_sorted = df.sort_values(by='sort_key', ascending=False) # works just like sorting strings alphabetically.. the leftmost value is the most important one, then the second one is the second most important etc. Which is what I want.
+print(df_sorted.head())
 
 # Drop the sorting key column
 df_sorted = df_sorted.drop(columns=['sort_key'])
