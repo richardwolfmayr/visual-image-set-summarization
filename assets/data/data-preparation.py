@@ -1,3 +1,5 @@
+# deprecated. it worked but it is not very flexible
+
 # this script should create the table2-combCite file from main_clean.json and xxxx
 # main_clean.json is the export from zotero
 # Document Profiles.xlsx is the export from MAXQDA Reports-->Document Profiles

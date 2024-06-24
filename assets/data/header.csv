@@ -1,107 +1,11 @@
 col_name;img_src;class;category
-Input Modalities > Metadata;none;;Input Modalities
-Input Modalities > Image;none;;Input Modalities
-Input Modalities > Text / Tags / Categories (+) (+);none;;Input Modalities
-Input Modalities > Input Shape (predefined collage shape);none;;Input Modalities
-Input Modalities > File structure;none;;Input Modalities
-Input Modalities > Predefined Story graph (+);none;;Input Modalities
-Input Modalities > Supplementary Data;none;;Input Modalities
-Derived Data > Image Features / Visual Features (+);none;;Derived Data
-Derived Data > Blur for Photo Quality Measurement;none;;Derived Data
-Derived Data > Quartets... Summarization or derived Data?;none;;Derived Data
+test_cat_2 > test_tag_direkt2;none;;test_cat_2
+test_cat_1 > test_tag_direkt;none;;test_cat_1
+test_cat_1 > test_tag_indirekt;none;;test_cat_1
+Derived Data > Image Features / Visual Features (+) TODO: tag clearer into Traditional/NN;none;;Derived Data
+Derived Data > Graph;none;;Derived Data
+Derived Data > Traditional image features (+) (+);none;;Derived Data
 Derived Data > Scene Graphs;none;;Derived Data
-Derived Data > Histograms;none;;Derived Data
-Derived Data > DoF Evaluation for Photo Quality Measurement;none;;Derived Data
-Derived Data > Categorization Tree;none;;Derived Data
-Derived Data > Classical image features;none;;Derived Data
-Derived Data > Tags Created;none;;Derived Data
-Derived Data > Distance Graph;none;;Derived Data
-Derived Data > Aesthetic Score;none;;Derived Data
-Derived Data > Color Histograms;none;;Derived Data
-Derived Data > Importance Score;none;;Derived Data
-Derived Data > Salient Objects;none;;Derived Data
-Derived Data > Bag of Words, Textual;none;;Derived Data
-Derived Data > Spectrum;none;;Derived Data
-Derived Data > Features created by NN;none;;Derived Data
-Derived Data > Concepts created by NN;none;;Derived Data
-Derived Data > Distance Matrix;none;;Derived Data
-Derived Data > Image Aesthetic Appeal (Aspect Ratio, colorfulness, luminacne, sharpness);none;;Derived Data
-Derived Data > Sentiment derived from Text/Comments;none;;Derived Data
-Derived Data > Semantics;none;;Derived Data
-Derived Data > Histogram intersection kernel HIK;none;;Derived Data
-Derived Data > Affective Features;none;;Derived Data
-Derived Data > Grayscale Images;none;;Derived Data
-Derived Data > Similarity matrix;none;;Derived Data
-Derived Data > Story graph;none;;Derived Data
-Derived Data > Affect/sentiment data;none;;Derived Data
-Summarization > User Selection;none;;Summarization
-Summarization > Clustering;none;;Summarization
-Summarization > Decompose the categorization tree;none;;Summarization
-Summarization > Sub-Graph Selection (+);none;;Summarization
-Summarization > Optimization for lowest reconstruction error;none;;Summarization
-Summarization > Latent Topic Analysis;none;;Summarization
-Summarization > Ranking;none;;Summarization
-Summarization > Constraint Satisfaction;none;;Summarization
-Summarization > Matrix factorization;none;;Summarization
-Summarizing Entities > Marks;none;;Summarizing Entities
-Summarizing Entities > Representative Images;none;;Summarizing Entities
-Summarizing Entities > Captions;none;;Summarizing Entities
-Summarizing Entities > None;none;;Summarizing Entities
-Summarizing Entities > Tags;none;;Summarizing Entities
-Visual Layout > Grid;none;;Visual Layout
-Visual Layout > Node-Link DIagram;none;;Visual Layout
-Visual Layout > None OR NOT STATED;none;;Visual Layout
-Visual Layout > Word cloud;none;;Visual Layout
-Visual Layout > Map;none;;Visual Layout
-Visual Layout > Treemap;none;;Visual Layout
-Visual Layout > Collage;none;;Visual Layout
-Visual Layout > Labeled;none;;Visual Layout
-Visual Layout > Embedding;none;;Visual Layout
-Visual Layout > List;none;;Visual Layout
-Visual Layout > images surrounding tag cloud;none;;Visual Layout
-Visual Layout > Timeline;none;;Visual Layout
-Visual Layout > Bar chart;none;;Visual Layout
-Visual Layout > Circular;none;;Visual Layout
-Tasks > Exploration;none;;Tasks
-Tasks > Managing. Providing an Overview over personal Photo Album;none;;Tasks
-Tasks > labeling / classification ... is this part of the Thesis?;none;;Tasks
-Tasks > Editing/Organizing;none;;Tasks
-Tasks > Captioning;none;;Tasks
-Tasks > Summarization;none;;Tasks
-Tasks > Making Sense of Structure .... Summarization?;none;;Tasks
-Tasks > Finding Needle in Haystack;none;;Tasks
-Tasks > Storytelling;none;;Tasks
-Tasks > Analytic categorization;none;;Tasks
-Tasks > Comparison;none;;Tasks
-Tasks > Navigation;none;;Tasks
-Set size > Tens of Thousands;none;;Set size
-Set size > not really mentioned;none;;Set size
-Set size > Thousands;none;;Set size
-Set size > <100;none;;Set size
-Set size > Tens;none;;Set size
-Set size > Millions;none;;Set size
-Set size > Hundreds of Thousands;none;;Set size
-Set size > Hundreds;none;;Set size
-Set size > Dozens;none;;Set size
-Evaluation > User study / Empirical Study (+);none;;Evaluation
-Evaluation > Metrics / performance Measures = Quantitative Experiments? (+);none;;Evaluation
-Evaluation > Qualitative Evaluation;none;;Evaluation
-Evaluation > Quantitative Experiments;none;;Evaluation
-Evaluation > None;none;;Evaluation
-Evaluation > Pyramid Approach;none;;Evaluation
-Evaluation > Use case;none;;Evaluation
-Interactions > Tagging;none;;Interactions
-Interactions > None;none;;Interactions
-Interactions > Zooming;none;;Interactions
-Interactions > Grouping;none;;Interactions
-Interactions > Selection;none;;Interactions
-Interactions > Turning;none;;Interactions
-Interactions > Querying;none;;Interactions
-Interactions > Panning (+);none;;Interactions
-Interactions > Filtering;none;;Interactions
-Interactions > Focus + context;none;;Interactions
-Application Area > forensics;none;;Application Area
-Application Area > medical;none;;Application Area
-Application Area > personal photo album;none;;Application Area
-Application Area > General purpose;none;;Application Area
-Application Area > generic;none;;Application Area
+Derived Data > Deep learning-based image "features"? (+);none;;Derived Data
+Derived Data > ???? unklar was damit zu tun ist;none;;Derived Data
+Derived Data > ???? Derived from Text --;none;;Derived Data

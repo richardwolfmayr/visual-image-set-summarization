@@ -1,4 +1,4 @@
-# Works with the doecument_profiles.xlsx file that is created by MAXQDA
+# Works with the MAXQDA24 Code Matrix Browser.xlsx file that is created by MAXQDA
 
 # this script should create the table2-combCite file from main_clean.json and Document Profiles.xlsx
 # main_clean.json is the export from zotero
@@ -10,10 +10,9 @@ import json
 import re
 import pandas as pd
 
-# in order to get e.g. "Input Data" checked, I have to check for "Input Data" and "Input Data > Data Types" and "Input Data > Data Types > Text" etc.
-# OR I have to tag "Input Data" by hand if there is a subcategory that is tagged ==> this is the solution I will go for, as the other one brings lots of problems with it (e.g. what if the same subsubcategory name exists in multiple places etc)
-
-# category > tag = category > subcategory... I used different descriptions for the same thing because of different approaches I had
+# in order to get e.g. "Data Types" checked, I have to check for "Input Data > Data Types" and "Input Data > Data Types > Text" etc.
+# this works well with the code matrix browser, but not with the document profiles
+# category > tag ... I used different descriptions for the same thing because of different approaches I had
 
 
 # Load the zotero_data
@@ -25,19 +24,33 @@ with open('main_clean_20.json', 'r') as f:
     zotero_data = json.load(f)
 
 # Read in the MAXQDA data
-df = pd.read_excel('Document Profiles.xlsx', sheet_name='Sheet1', header=0)
+df = pd.read_excel('MAXQDA24 Code Matrix Browser.xlsx', sheet_name='Sheet1', header=0)
 
+
+# get all tags and their respective category
+# the subtags are not relevant
+# examples:
+# test_cat_2	... dont care
+# test_cat_2 > test_tag_direkt2	... save "test_tag_direkt2" as the tag and "test_cat_2" as the category
+# test_cat_2 > test_tag_direkt2 > subtag1 ... dont care
 def get_tag_structure():
     tag_structure = []
-    for col in df.columns[3:]:
-        pattern = re.compile(r'^(?!\.\.)(.*?)(?: > (.*))?$')
+    for col in df.columns[1:]:
+        # pattern = re.compile(r'(.*)\s*>\s*(.*)\s*>?.*') # this is greedy ==> "test_cat_2 > test_tag_direkt2" is capured in group(1) if you use "test_cat_2 > test_tag_direkt2 > subtag1"
+        # pattern = re.compile(r'(.*?)\s*>\s*(.*?)\s*>?.*') # this does not capture the tag in group(2)
+        pattern = re.compile(r'(.*?)\s*>\s*([^>]+)\s*(?!>).*$')
         match = pattern.match(col)
         if match:
             category = match.group(1)
-            subcategory = match.group(2)
-            tag_structure.append({"category": category, "subcategory": subcategory, "original_col": col})
-        # if there is a structure like "..> Metadata > Geolocation (+)" it is not matched by the pattern. We do not care about these tags
-        # so we have to tag subcategories in MAXQDA by hand, not only the subsubcategories etc
+            tag = match.group(2)
+            for tag_entry in tag_structure:
+                if tag_entry['category'] == category and tag_entry['tag'] == tag:
+                    # the tag already exists, but we have to add another original column name to it
+                    # get the tag structure that already exists
+                    tag_entry['original_cols'].append(col)
+                    break
+            else:
+                tag_structure.append({"category": category, "tag": tag, "original_cols": [col]})
     return tag_structure
 
 
@@ -48,56 +61,65 @@ with open('header.csv', 'w') as f:
     f.write("col_name;img_src;class;category\n")
     # now write the tag structure into the file
     for tag in tag_structure:
-        # if it has no subcategory, it is only a category-tag ==> don't print this, as we only print the subcategories
-        if tag['subcategory'] != None:
-            f.write(f"{tag['category']} > {tag['subcategory']};none;;{tag['category']}\n")
+        f.write(f"{tag['category']} > {tag['tag']};none;;{tag['category']}\n")
+
 
 # the df is a mess ==> create a new structure that is easier to work with
 def create_document_tags_list(df, tag_structure):
     documents_tags = []
     for index, row in df.iterrows():
+        path_and_name = row.iloc[0],  # the first column is the document name and path. It does not have a useful name ==> iloc[0]
+        pattern = r'.*\s*>\s*(.*)'  # get the last part of the title, which is the actual document name without the path
+        match = re.match(pattern, path_and_name[0])
+        document_name = ""
+        if match:
+            document_name = match.group(1)
+        else:
+            if path_and_name[0] == "SUM":
+                # this is the last row: do nothing
+                continue
+            else:
+                print(f"ERROR: no match for {document_name}")
+
         document_info = {
-            'Document group': row['Document group'],
-            'Document name': row['Document name'],
-            'Document memo': row['Document memo'],
+            'Document name': document_name,
             'tags': []
         }
         for tag in tag_structure:
-            # rebuild the column name from the tag structure
-            column_name = tag['original_col'] # the original column name
-            # TESTING
-            # if column_name == "Derived Data > Image Features / Visual Features":
-            #     print(f"Tag: {tag}")
+            # rebuild the column names from the tag structure
+            original_cols = tag['original_cols']  # the original column names
 
-            # check if the column exists in the df and if the value is not 0. If it is not 0 in that row, the tag is set
-            has_tag = column_name in df.columns and row[column_name] != 0
+            # get all columns that are in the original_cols list of that tag and check if the current document has any of those columns set to a value != 0
+            # this means that the tag is set for this document. If not, the tag is not set for this document
+            # e.g. if the document has derived data > graph > distance graph then the tag "graph" is set for this document
+            has_tag = False
+            for column_name in original_cols:
+                if row[column_name] != 0:
+                    has_tag = True
+                    break
             tag_info = {
                 'category': tag['category'],
-                'subcategory': tag['subcategory'],
+                'tag': tag['tag'],
                 'has_tag': has_tag
             }
             document_info['tags'].append(tag_info)
         documents_tags.append(document_info)
     return documents_tags
 
+
 document_tag_list = create_document_tags_list(df, tag_structure)
 
-# Print every tag that the first document has with has_tag == True for testing
-
-
-# for every column of structure: "categroy > tag" where there is a number in the document profiles, the tag information with category, subcategory is stored in the document_tag_list with has_tag = true,
+# for every column of the tagstructure: "category > tag" where there is a number in the MAXQDA-file, the tag information with category and tag is stored in the document_tag_list with has_tag = true,
 # for every other it is stored with has_tag = false
 # now: print it to table2-combCite.csv
 with open('table2-combCite.csv', 'w') as f:
     f.write("Paper#Ref;")
     for tag in tag_structure:
-        # if it has no subcategory, it is only a category-tag ==> don't print this, as we only print the subcategories
-        if tag['subcategory'] != None:
-            f.write(f"{tag['category']} > {tag['subcategory']};") # IMPORTANT: write the "tag['category']" because otherwise, if we have the same subcategory word e.g. "none" in multiple categories, it will be overwritten in table.js when reading the data with d3.dsv(';', '../assets/data/table2-combCite.csv')
+        f.write(f"{tag['category']} > {tag['tag']};")
+        # IMPORTANT: write the "tag['category']" because otherwise, if we have the same tag word e.g. "none" in multiple categories,
+        # it will be overwritten in table.js when reading the data with d3.dsv(';', '../assets/data/table2-combCite.csv')
     f.write("\n")
-    #same would work for subsub, but not programmed since I don't want it anyways
 
-    # f.write("Paper#Ref;Adaptive Systems;Evaluation of Systems and Algorithms;Model Steering and Active Learning;Replication;Report Generation;Understanding the User;Grammar;Graph;Model;Sequence;Classification Models;Pattern Analysis;Probabilistic Models/Prediction;Program Synthesis;Interactive Visual Analysis\n")
     for item in zotero_data:
         # manually fix two titles:
         # Advanced Interface Design for IIIF A Digital Tool to Explore Image Collections at Different Scales; [Design di interfacce avanzato per IIIF. Uno strumento digitale per esplorare collezioni di immagini a diverse scale]
@@ -134,13 +156,11 @@ with open('table2-combCite.csv', 'w') as f:
             # so I have to remove them. I remove any special characters
             zotero_title_short = re.sub(r'\W+', '', zotero_title).lower()
             maxqda_title_short = re.sub(r'\W+', '', maxqda_title).lower()
-
-
-
             # todo: probably more cases like this
+
             # case insensitive comparison
             if maxqda_title_short in zotero_title_short:
-                f.write(f"{zotero_title}#{item['id']};") # only print if found (But ALL should be found in the end... just not during the coding, when not all are done)
+                f.write(f"{zotero_title}#{item['id']};")  # only print if found (But ALL should be found in the end... just not during the coding, when not all are done)
                 for col in tag_structure:
                     # for every tag in the tag_structure, check if it is set in this document and print 0 or category_number to the file
                     # print(f"Match: {col}")
@@ -167,14 +187,18 @@ with open('table2-combCite.csv', 'w') as f:
                         category_number = 9
                     elif category == "Evaluation":
                         category_number = 10
+                    elif category == "test_cat_1":  # ONLY FOR TESTING
+                        category_number = 1
+                    elif category == "test_cat_2":  # ONLY FOR TESTING
+                        category_number = 2
                     else:  # TODO: this should not happen
                         print(f"ERROR: Category not found: {category}")
                         category_number = 0
 
-                    for tag in document['tags']: # iterate over all tags in the document (no matter if has tag or not)
-                        if tag['subcategory'] == None:
-                            continue # skip the category-tags without subcategories
-                        if tag['category'] == category and tag['subcategory'] == col['subcategory']: # the current tag/subcategory from tag_structure matches the current tag/subcategory in the document
+                    for tag in document['tags']:  # iterate over all tags in the document (no matter if has tag or not)
+                        if tag['tag'] == None:
+                            continue  # skip the category-tags without subcategories
+                        if tag['category'] == category and tag['tag'] == col['tag']:  # the current tag from tag_structure matches the current tag in the document
                             if tag['has_tag']:
                                 # print(category_number)
                                 f.write(f"{category_number};")
@@ -184,7 +208,6 @@ with open('table2-combCite.csv', 'w') as f:
                             break
                 f.write("\n")
                 break
-
 
 # order table2-combCite.csv by has_tag per tag. e.g. every paper that has "metadata" in the category "Input Data" should be first, then every paper that has "text" in the category "Input Data" etc.
 # this is important for the visualization, as the order of the categories is important
@@ -205,8 +228,8 @@ df.columns = df.columns.str.strip()
 sort_columns = sort_columns.str.strip()
 
 # Create a sorting key DataFrame by applying a lambda function that returns a tuple of negative values for each row
-print(df.head())
-print(df[sort_columns].head())
+# print(df.head())
+# print(df[sort_columns].head())
 
 # experiments
 # df[sort_columns].apply(lambda x: print(x), axis=1) # applies "print" to each row
@@ -230,9 +253,10 @@ sort_key = df[sort_columns].apply(lambda x: tuple(1 if val != 0 else 0 for val i
 df['sort_key'] = sort_key
 
 # Sort the DataFrame based on the sorting key
-print(df.head())
-df_sorted = df.sort_values(by='sort_key', ascending=False) # works just like sorting strings alphabetically.. the leftmost value is the most important one, then the second one is the second most important etc. Which is what I want.
-print(df_sorted.head())
+# print(df.head())
+df_sorted = df.sort_values(by='sort_key',
+                           ascending=False)  # works just like sorting strings alphabetically.. the leftmost value is the most important one, then the second one is the second most important etc. Which is what I want.
+# print(df_sorted.head())
 
 # Drop the sorting key column
 df_sorted = df_sorted.drop(columns=['sort_key'])

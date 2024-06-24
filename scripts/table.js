@@ -85,6 +85,20 @@ function updateTable(data) {
                                 return `<img height=15px src='../assets/images/ReferenceTable/yes2.png' alt='yes'/>`;
                             case '3':
                                 return `<img height=15px src='../assets/images/ReferenceTable/yes3.png' alt='yes'/>`;
+                            case '4':
+                                return `<img height=15px src='../assets/images/ReferenceTable/yes3.png' alt='yes'/>`; // TODO: new images
+                            case '5':
+                                return `<img height=15px src='../assets/images/ReferenceTable/yes3.png' alt='yes'/>`;
+                            case '6':
+                                return `<img height=15px src='../assets/images/ReferenceTable/yes3.png' alt='yes'/>`;
+                            case '7':
+                                return `<img height=15px src='../assets/images/ReferenceTable/yes3.png' alt='yes'/>`;
+                            case '8':
+                                return `<img height=15px src='../assets/images/ReferenceTable/yes3.png' alt='yes'/>`;
+                            case '9':
+                                return `<img height=15px src='../assets/images/ReferenceTable/yes3.png' alt='yes'/>`;
+                            case '10':
+                                return `<img height=15px src='../assets/images/ReferenceTable/yes3.png' alt='yes'/>`;
                             default:
                                 return `<a class='literature_col' href='#${d.split('#')[1]}'>${d.split('#')[0]}</a>`;
                         }
