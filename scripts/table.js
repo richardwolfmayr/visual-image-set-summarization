@@ -11,12 +11,12 @@ d3.dsv(';', '../assets/data/header.csv')
                 (enter) => {
                     const th_enter = enter.append('th');
                     th_enter.html((d, idx) => {
-                        // <th scope="col" class="rotate-45"><div><label><span><input value="1" class="cbFilter" type="checkbox"><img src="../assets/images/techniques/color_icons/adaptivesystems_c.png" height="20">Adaptive Systems</span></label></div></th>
+                        // <th scope="col" class="rotate-60"><div><label><span><input value="1" class="cbFilter" type="checkbox"><img src="../assets/images/techniques/color_icons/adaptivesystems_c.png" height="20">Adaptive Systems</span></label></div></th>
                         // dont print the whole col_name, but only the second part. The structure is category > tag and we only want the tag
                         let tagname = d.col_name.split(' > ')[1];
                         return `<div><span>${tagname}</span></div><p style="width:20px"><label><img src="../assets/images/techniques/color_icons/${d.img_src}" height="20"><input value="${idx + 1}" class="cbFilter" type="checkbox"> <input type="hidden" class="col_name" value="${d.col_name}"></label></p>`
                     });
-                    th_enter.attr("class", (d, i) => `rotate-45 ${d.class}`);
+                    th_enter.attr("class", (d, i) => `rotate-60 ${d.class}`);
                     th_enter.attr("scope", "col");
                     return th_enter;
                 }

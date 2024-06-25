@@ -171,15 +171,19 @@ with open('table2-combCite.csv', 'w') as f:
                         category_number = 1
                     elif category == "Derived Data":
                         category_number = 2
-                    elif category == "Summarization":
+                    # elif category == "Summarization":
+                    elif category == "Summarization_Design_Factors":
                         category_number = 3
                     elif category == "Summarizing Entities":
                         category_number = 4
-                    elif category == "Visual Layout":
+                    # elif category == "Visual Layout":
+                    elif category == "Spatial Arrangement":
                         category_number = 5
-                    elif category == "Interactions":
+                    # elif category == "Interactions":
+                    elif category == "Interactions_Toward_a_Deeper_Understanding":
                         category_number = 6
-                    elif category == "Tasks":
+                    # elif category == "Tasks":
+                    elif category == "Goal":
                         category_number = 7
                     elif category == "Set size":
                         category_number = 8

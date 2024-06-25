@@ -55,14 +55,15 @@ html {
     border-spacing: 0px;
 }
 
-.objecttable td{ 
-    text-align: left; 
-    padding: 0; 
+.objecttable td{
+    text-align: left;
+    padding: 0;
     margin: 0;
+    padding-bottom: 10px; /* add padding to create some space between the titles since I use titles which can span multiple lines*/
 }
 
 .objecttable tbody tr td:first-child {
-    text-align: right; 
+    text-align: right;
     min-width: 17em;
     padding-right:20px;
     font-size: 12px;
@@ -94,14 +95,14 @@ html {
 .table-header-rotated th.row-header{
     width: auto;
   }
-  
+
   .table-header-rotated td{
     padding:0px;
-    width: 40px;
+    width: 25px;
     vertical-align: middle;
     /* text-align: center; */
   }
-  
+
   .table-header-rotated th.rotate-45{
     height: 200px;
     width: 40px;
@@ -115,7 +116,7 @@ html {
     /* left: 40px; /*corresponds to one cell width     */
     bottom:10px;
   }
-  
+
   .table-header-rotated th.rotate-45 > div{
     position: relative;
     top: 0px;
@@ -129,7 +130,7 @@ html {
     transform:skew(-45deg,0deg);
     overflow: hidden;
   }
-  
+
   .table-header-rotated th.rotate-45 span {
     -ms-transform:skew(45deg,0deg) rotate(315deg);
     -moz-transform:skew(45deg,0deg) rotate(315deg);
@@ -149,26 +150,15 @@ html {
       transform: rotate(45deg);
   } */
 
-
-/* add padding to create some space between the titles since I use titles which can span multiple lines*/
-.objecttable td {
-    padding-bottom: 10px;
-}
-
-
-
-
-
-
 .table-header-rotated th.rotate-60{
     height: 200px;
-    width: 40px;
-    min-width: 40px;
+    width: 25px;
+    min-width: 25px;
     max-width: 40px;
     position: relative;
     vertical-align: bottom;
     padding: 0;
-    font-size: 12px;
+    font-size: 9px;
     line-height: 1.0; /*0.8;*/
     /* left: 40px; /*corresponds to one cell width     */
     bottom:10px;
@@ -177,7 +167,7 @@ html {
 .table-header-rotated th.rotate-60 > div{
     position: relative;
     top: 0px;
-    left: 60px; /* 80 * tan(60) / 2 = 40 where 80 is the height on the cell and 60 is the transform angle*/
+    left: 48px; /* 80 * tan(60) / 2 = 40 where 80 is the height on the cell and 60 is the transform angle*/
     /* height: 100%; */
     height:170px;
     -ms-transform:skew(-60deg,0deg);
@@ -185,7 +175,7 @@ html {
     -webkit-transform:skew(-60deg,0deg);
     -o-transform:skew(-60deg,0deg);
     transform:skew(-60deg,0deg);
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 .table-header-rotated th.rotate-60 span {
@@ -195,8 +185,8 @@ html {
     -o-transform:skew(60deg,0deg) rotate(300deg);
     transform:skew(60deg,0deg) rotate(300deg);
     position: absolute;
-    bottom: 60px; /* 40 cos(60) = 28 with an additional 2px margin*/
-    left: -63px; /*Because it looked good, but there is probably a mathematical link here as well*/
+    bottom: 66px; /* 40 cos(60) = 28 with an additional 2px margin*/
+    left: -60px; /*Because it looked good, but there is probably a mathematical link here as well*/
     display: inline-block;
     width: 170px;/*85px;*/ /* 80 / cos(60) - 40 cos (60) = 85 where 80 is the height of the cell, 40 the width of the cell and 60 the transform angle*/
     text-align: left;
