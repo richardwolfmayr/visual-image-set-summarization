@@ -14,6 +14,9 @@ import pandas as pd
 # this works well with the code matrix browser, but not with the document profiles
 # category > tag ... I used different descriptions for the same thing because of different approaches I had
 
+# reads the MAXQDA24 Code Matrix Browser.xlsx file and the main_clean.json file
+# writes into the header.csv file and the table2-combCite.csv file
+
 
 # Load the zotero_data
 with open('main_clean.json', 'r') as f:
