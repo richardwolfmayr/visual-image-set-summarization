@@ -172,7 +172,9 @@ with open('table2-combCite.csv', 'w') as f:
                     category = col["category"]  # the category. Depending on the category, the class will be different, e.g. 0, 1, 2, 3
                     if category == "Input Modalities":
                         category_number = 1
-                    elif category == "Derived Data":
+                    # elif category == "Derived Data":
+                    #     category_number = 2
+                    elif category == "Image Representation":
                         category_number = 2
                     # elif category == "Summarization":
                     elif category == "Summarization_Design_Factors":
@@ -190,14 +192,14 @@ with open('table2-combCite.csv', 'w') as f:
                         category_number = 7
                     elif category == "Set size":
                         category_number = 8
-                    elif category == "Application Area":
-                        category_number = 9
                     elif category == "Evaluation":
-                        category_number = 10
-                    elif category == "test_cat_1":  # ONLY FOR TESTING
-                        category_number = 1
-                    elif category == "test_cat_2":  # ONLY FOR TESTING
-                        category_number = 2
+                        category_number = 9
+                    # elif category == "Application Area":
+                    #     category_number = 10
+                    # elif category == "test_cat_1":  # ONLY FOR TESTING
+                    #     category_number = 1
+                    # elif category == "test_cat_2":  # ONLY FOR TESTING
+                    #     category_number = 2
                     else:  # TODO: this should not happen
                         print(f"ERROR: Category not found: {category}")
                         category_number = 0

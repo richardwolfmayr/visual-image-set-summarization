@@ -1,9 +1,20 @@
 col_name;img_src;class;category
+Input Modalities > Metadata;none;;Input Modalities
+Input Modalities > Text;none;;Input Modalities
+Input Modalities > ONLY Image Data;none;;Input Modalities
+Image Representation > Deep learning-based Image Features;none;;Image Representation
+Image Representation > Traditional Image Features;none;;Image Representation
+Image Representation > Unsicher;none;;Image Representation
 Summarization_Design_Factors > Aggregation;none;;Summarization_Design_Factors
 Summarization_Design_Factors > Subsampling;none;;Summarization_Design_Factors
 Summarization_Design_Factors > Filtering;none;;Summarization_Design_Factors
 Summarization_Design_Factors > Projection;none;;Summarization_Design_Factors
 Summarization_Design_Factors > unsicher;none;;Summarization_Design_Factors
+Summarizing Entities > Marks;none;;Summarizing Entities
+Summarizing Entities > Representative Images;none;;Summarizing Entities
+Summarizing Entities > Captions and Tags;none;;Summarizing Entities
+Summarizing Entities > None / Implicit;none;;Summarizing Entities
+Summarizing Entities > Numerical statistics;none;;Summarizing Entities
 Spatial Arrangement > None / fixed;none;;Spatial Arrangement
 Spatial Arrangement > Single Attribute;none;;Spatial Arrangement
 Spatial Arrangement > Two Attributes;none;;Spatial Arrangement
@@ -11,16 +22,27 @@ Spatial Arrangement > More Attributes;none;;Spatial Arrangement
 Spatial Arrangement > Geography;none;;Spatial Arrangement
 Spatial Arrangement > Topology;none;;Spatial Arrangement
 Spatial Arrangement > Unsicher;none;;Spatial Arrangement
+Set size > not really mentioned;none;;Set size
+Set size > Tens;none;;Set size
+Set size > Hundreds;none;;Set size
+Set size > Thousands;none;;Set size
+Set size > Tens of Thousands;none;;Set size
+Set size > Hundreds of Thousands;none;;Set size
+Set size > Millions;none;;Set size
 Goal > Explore;none;;Goal
 Goal > Confirm;none;;Goal
 Goal > Present;none;;Goal
 Goal > Produce;none;;Goal
 Goal > Nothing found;none;;Goal
 Interactions_Toward_a_Deeper_Understanding > Select;none;;Interactions_Toward_a_Deeper_Understanding
-Interactions_Toward_a_Deeper_Understanding > Explore / Navigate;none;;Interactions_Toward_a_Deeper_Understanding
+Interactions_Toward_a_Deeper_Understanding > Navigate;none;;Interactions_Toward_a_Deeper_Understanding
 Interactions_Toward_a_Deeper_Understanding > Reconfigure;none;;Interactions_Toward_a_Deeper_Understanding
 Interactions_Toward_a_Deeper_Understanding > Encode;none;;Interactions_Toward_a_Deeper_Understanding
-Interactions_Toward_a_Deeper_Understanding > Abstract/Elaborate;none;;Interactions_Toward_a_Deeper_Understanding
+Interactions_Toward_a_Deeper_Understanding > Show Details / Show Context;none;;Interactions_Toward_a_Deeper_Understanding
 Interactions_Toward_a_Deeper_Understanding > Filter;none;;Interactions_Toward_a_Deeper_Understanding
-Interactions_Toward_a_Deeper_Understanding > Connect;none;;Interactions_Toward_a_Deeper_Understanding
 Interactions_Toward_a_Deeper_Understanding > unsicher;none;;Interactions_Toward_a_Deeper_Understanding
+Evaluation > Algorithmic Performance;none;;Evaluation
+Evaluation > None;none;;Evaluation
+Evaluation > User Experience and Peformance;none;;Evaluation
+Evaluation > Qualitative Results Inspection (incl Usage Scenario / Use Case);none;;Evaluation
+Evaluation > Case Study (excl. Usage Scenario);none;;Evaluation
