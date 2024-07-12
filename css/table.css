@@ -55,12 +55,7 @@ html {
     border-spacing: 0px;
 }
 
-.objecttable td{
-    text-align: left;
-    padding: 0;
-    margin: 0;
-    padding-bottom: 10px; /* add padding to create some space between the titles since I use titles which can span multiple lines*/
-}
+
 
 .objecttable tbody tr td:first-child {
     text-align: right;
@@ -191,4 +186,15 @@ html {
     width: 170px;/*85px;*/ /* 80 / cos(60) - 40 cos (60) = 85 where 80 is the height of the cell, 40 the width of the cell and 60 the transform angle*/
     text-align: left;
     /* white-space: nowrap; */
+}
+
+/*!* add padding to create some space between the titles since I use titles which can span multiple lines*!*/
+/*.objecttable td {*/
+/*    padding-bottom: 100px;*/
+/*}*/
+.objecttable td{
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px; /* add padding to create some space between the titles since I use titles which can span multiple lines*/
 }
